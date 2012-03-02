@@ -1,0 +1,21 @@
+@(regForm: Form[Application.User], professions: List[String])
+
+@main("Devcrowd registration") {
+
+    @helper.form(action = routes.Application.confirm()) {
+        @helper.inputText(regForm("firstName"), '_label -> "Imię")
+        @helper.inputText(regForm("surname"))
+        @helper.inputText(regForm("email"))
+        @helper.inputText(regForm("city"))
+
+        @helper.input(regForm("profession")) { (id, name, value, args) =>
+            <select name="@name">
+                @for(p <- professions) {
+                    <option value="@p">@p</option>
+                }
+            </select>
+        }
+
+        <input type="submit" />
+    }
+}
