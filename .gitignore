@@ -4,3 +4,6 @@ project/target
 target
 tmp
 .history
+.idea
+.idea_modules
+.sbt_completion_cache
